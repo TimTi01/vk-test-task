@@ -139,4 +139,189 @@ renderOrder: [
 </br>
 ![image](https://user-images.githubusercontent.com/74858329/121783571-04ce9300-cbb8-11eb-816d-e40d1c2df214.png)   
 </br>
-![image](https://user-images.githubusercontent.com/74858329/121783587-292a6f80-cbb8-11eb-957b-8470e9ec7dbf.png)
+JSON:
+``` JS
+let json = {
+    basicComp: [
+        {tag: "h1", id: "heading", title: "Анкета на найм к Торину и КО"},
+        {tag: "input", type: "text", id: "first_name", title: "Имя"}, 
+        {tag: "input", type: "text", id: "last_name", title: "Фамилия"}, 
+        {tag: "input", type: "tel", id: "phone", title: "Телефон(ворон)"}, 
+        {tag: "input", type: "email", id: "email", title: "Почта"}, 
+        {tag: "input", type: "number", id: "age", title: "Возраст"}, 
+        {tag: "input", type: "date", id: "date", title: "Дата:", value:"2021-06-10"}, 
+    ],
+
+    additionalComp: [
+        {tag: "p", id: "paragraph", title: "Волшебные кольца:"},
+        {tag: "input", id: "rings", type: "radio", title: ["Есть", "Нет"], name: "rings", value: ["Yes", "No"]}, 
+        {tag: "select", id: "listRings", title: "Список колец:", optionValue: ["value1", "value2", "value3", "value4"], optionTitle: ["Кольцо Всевластья", "Кольцо людей", "Кольцо эльфов", "Кольцо гномов"]},
+        {tag: "p", id: "paragraph", title: "Специализации:"},
+        {tag: "input", type: "checkbox", id: "specialization", title: ["Взломщик", "Воин", "Стрелок", "Маг"], name: "specialization", value: ""},
+    ],
+
+    preferencesComp: [
+        {tag: "input", id: "submit", type: "submit", value:"Отправить"},
+    ],
+
+    renderOrder: [
+        "basicComp",
+        "additionalComp",
+        "preferencesComp"
+    ]
+}
+```
+</br>
+
+```HTML
+<form class="form" action="#" method="post" enctype="multipart/form-data">
+  <h1 heading>Анкета на найм к Торину и КО</h1>
+  <div class="indent">
+      <label for="first_name">Имя</label>
+      <input id="first_name" type="text"/>
+  </div>
+  <div class="indent">
+      <label for="last_name">Фамилия</label>
+      <input id="last_name" type="text"/>
+  </div>
+  <div class="indent">
+      <label for="phone">Телефон(ворон)</label>
+      <input id="phone" type="tel"/>
+  </div>
+  <div class="indent">
+      <label for="email">Почта</label>
+      <input id="email" type="email"/>
+  </div>
+  <div class="indent">
+      <label for="age">Возраст</label>
+      <input id="age" type="number"/>
+  </div>
+  <div class="indent">
+      <label for="date">Дата:</label>
+      <input id="date" type="date" value="2021-06-10"/>
+  </div>
+
+
+  <p paragraph>Волшебные кольца:</p>
+
+  <div>
+      <input id="rings" type="radio" value="Yes" name="rings">
+      <label for="rings">Есть</label>
+  </div>
+  <div>
+      <input id="rings" type="radio" value="No" name="rings">
+      <label for="rings">Нет</label>
+  </div>
+  <div>
+      <label for="listRings">Список колец:</label>
+      <select id="listRings">	
+      <option value="value1">Кольцо Всевластья</option>
+      <option value="value2">Кольцо людей</option>
+      <option value="value3">Кольцо эльфов</option>
+      <option value="value4">Кольцо гномов</option>
+      </select>
+  </div>
+
+  <p paragraph>Специализации:</p>
+
+  <div>
+      <input type="checkbox" id="specialization" name="specialization">
+      <label for="specialization">Взломщик</label>
+  </div>
+  <div>
+      <input type="checkbox" id="specialization" name="specialization">
+      <label for="specialization">Воин</label>
+  </div>
+  <div>
+      <input type="checkbox" id="specialization" name="specialization">
+      <label for="specialization">Стрелок</label>
+  </div>
+  <div>
+      <input type="checkbox" id="specialization" name="specialization">
+      <label for="specialization">Маг</label>
+  </div>
+
+  <input class="submit" type="submit" value="Отправить">
+        
+  <style>
+      /* Remove default margin */
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      p {
+          margin: 0;
+      }
+
+
+      body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+      }
+
+      .form {
+          display: flex;
+          flex-direction: column;
+          width: 400px;
+          padding: 25px 32px;
+          font-family: sans-serif;
+          box-shadow: 0 2px 28px rgb(0 0 0 / 21%);
+          letter-spacing: 0.5px;
+      }
+
+      .form h1 {
+          text-align: center;
+          padding: 0px 0 15px 0;
+      }
+
+      .form p {
+          padding: 15px 0 3px 0;
+      }
+
+      .form input {
+          outline:none;
+          padding: 5px;
+          margin: 5px 0 5px 0;
+          border: 0.5px solid rgb(216, 216, 216); 
+      }
+      .form input:hover {
+          border: 0.5px solid rgb(185, 185, 185); 
+      }
+      .form input:focus {
+          border-color: gold; 
+      }
+
+      .form select {
+          outline: none;
+          width: auto;
+          padding: 5px;
+          margin: 10px 0 10px 0;
+      }
+
+      .form label {
+          margin: 0 10px 0 0;
+      }
+
+      .form .indent {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .form .submit {
+          width: 30%;
+          margin: 5px auto;
+          padding: 5px 10px;
+          background-color: #f8f8ff;
+      }
+
+      .form .submit:hover {
+          cursor: pointer;
+          border-color: gold; 
+      }
+  </style>
+</form>
+  ```
