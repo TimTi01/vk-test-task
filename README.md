@@ -1,9 +1,6 @@
 # Документация разметки JSON:
-
-![mars](https://user-images.githubusercontent.com/74858329/121781219-6e48a480-cbac-11eb-8380-9e17e37fe306.png)
-
-
-
+###### (Пример работы генератора расположены снизу)
+</br>
 ##### JSON состоит из 3-х основных элементов:
 * Компонента
 * Тэг
@@ -135,3 +132,9 @@ renderOrder: [
     "preferencesComp"
 ]
 ```
+---
+**Результаты действия генератора:**   
+</br>
+![image](https://user-images.githubusercontent.com/74858329/121783571-04ce9300-cbb8-11eb-816d-e40d1c2df214.png)   
+</br>
+![image](https://user-images.githubusercontent.com/74858329/121783587-292a6f80-cbb8-11eb-957b-8470e9ec7dbf.png)
