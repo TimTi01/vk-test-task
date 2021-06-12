@@ -1,4 +1,8 @@
-# Документация размети JSON:
+# Документация разметки JSON:
+
+![mars](https://user-images.githubusercontent.com/74858329/121781219-6e48a480-cbac-11eb-8380-9e17e37fe306.png)
+
+
 
 ##### JSON состоит из 3-х основных элементов:
 * Компонента
@@ -7,7 +11,7 @@
 
 </br>
 
-**Компонента** - компонента предназначена для хранения неограниченного кол-ва тэгов. В JSON допускает неограниченное кол-во компонент, а так же произвольное название компоненты.
+**Компонента** - компонента предназначена для хранения неограниченного кол-ва тэгов. В JSON допускает неограниченное кол-во компонент, а так же произвольное название компоненты. Имя компоненты является ключем для массива с тэгами(объектами). 
 
 *Синтаксис компоненты:*
 ``` JS
@@ -25,50 +29,20 @@ basicComp: [
 ```JS
 {tag: "input", type: "text", id: "first_name", title: "Имя"}
 ```
-*input:* 
+#### *Input:* 
 * *text:* 
 ```JS
 {tag: "input", type: "text", id: "first_name", title: "Имя"}
 ```
-`tag` - ключ tag отвечает за тэг выводящийся в разметке HTML. Синтаксис ключа tag и его значений должен соответствовать синтаксису разметки HTML.  
+`tag` - ключ tag отвечает за тэг выводящийся в разметке HTML. Поддерживает такие значения, как "input","h1","p","select". Тип значения всегда - `string`.
 `type` - ключ type отвечает за тип тэга.  
 `id` - ключ id будет прописываться в тэге. Значение ключа id задаётся произвольно.    
-`title` - значение ключа title передаёт текст в тэг label 
+`title` - значение ключа title передаёт содержимое в тэг label 
 
 *результат вывода:* 
 ```HTML
 <label for="first_name">Имя</label>
 <input id="first_name" type="text"/>
-```
-
-* *number:* 
-```JS
-{tag: "input", type: "number", id: "age", title: "Возраст"},
-```
-*результат вывода:* 
-```HTML
-<label for="age">Возраст</label>
-<input id="age" type="number"/>
-```
-
-* *email:* 
-```JS
-{tag: "input", type: "email", id: "email", title: "Почта"},
-```
-*результат вывода:* 
-```HTML
-<label for="email">Почта</label>
-<input id="email" type="email"/>
-```
-
-* *tel:* 
-```JS
-{tag: "input", type: "tel", id: "phone", title: "Телефон"},
-```
-*результат вывода:* 
-```HTML
-<label for="phone">Телефон</label>
-<input id="phone" type="tel"/>
 ```
 
 * *data:* 
@@ -84,7 +58,7 @@ basicComp: [
 <input id="date" type="date" value="2021-06-10"/>
 ```
 
-*radio:* 
+#### *Radio:* 
 ```JS
 {tag: "input", id: "", type: "radio", title: ["Да", "Нет"], name: "", value: ["Yes", "No"]},
 ```
@@ -100,7 +74,7 @@ basicComp: [
 </div>
 ```
 
-*checkbox:* 
+#### *Checkbox:* 
 ```JS
 {tag: "input", type: "checkbox", id: "check", title: ["Значение1", "Значение2", "Значение3"], name: "", value: ""},
 ```
@@ -123,7 +97,7 @@ basicComp: [
 </div>
 ```
 
-*select:*
+#### *Select:*
 ```JS
 {tag: "select", id: "", title: "Список", optionValue: ["value1", "value2", "value3"], optionTitle: ["Значение1", "Значение2", "Значение3"]},
 ```
@@ -139,7 +113,7 @@ basicComp: [
 </select>
 ```
 
-*submit:* 
+#### *Submit:* 
 ```JS
 {tag: "input", id: "submit", type: "submit", value:"Отправить"},
 ```
@@ -151,7 +125,7 @@ basicComp: [
 </br>
 
 
-**Компонента разметки** - компонента разметки предназначена для расстановки компонент. Название компоненты разметки неизменно - renderOrder. 
+**Компонента разметки** - массив с названиями компонент. Компонента разметки предназначена для расстановки компонент. Название компоненты разметки неизменно - renderOrder. 
 
 *Синтаксис компоненты разметки:*
 ``` JS
@@ -161,6 +135,3 @@ renderOrder: [
     "preferencesComp"
 ]
 ```
-
-
-
